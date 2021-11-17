@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1">
+    <children>
+        <TextArea editable="false" layoutX="14.0" layoutY="14.0" prefHeight="43.0" prefWidth="574.0" text="Welcome to To Do List! Your one stop app to store all your tasks! Work dates and Netflix times! The following are how to do all the features of this application. Enjoy!" wrapText="true" />
+        <TextArea editable="false" layoutX="14.0" layoutY="57.0" prefHeight="43.0" prefWidth="574.0" text="To add at least up to 100 unique items: Type the name of the event, pick an optional date in the date picker, and click on the &quot;Add Event&quot; Button to add a serialNumber, then event into the list." wrapText="true" />
+        <TextArea editable="false" layoutX="14.0" layoutY="100.0" prefHeight="43.0" prefWidth="574.0" text="To edit an item serialNumber: click on the &quot;edit&quot; tab, and then click on &quot;Edit Item Description&quot; and type a serialNumber between 1 and 256 characters" wrapText="true" />
+        <TextArea editable="false" layoutX="13.0" layoutY="143.0" prefHeight="43.0" prefWidth="574.0" text="To edit due date: Click on &quot;Edit&quot; tab, and then click &quot;Edit Due Date&quot; button, then pick a new date within date picker and click on the &quot;save Date&quot; button. If no due date is desired, save without picking a date." wrapText="true" />
+        <TextArea editable="false" layoutX="13.0" layoutY="186.0" prefHeight="43.0" prefWidth="574.0" text="To remove an item from the list: Click on item you wish to delete within the list, then click on &quot;Delete&quot; tab, and then click on &quot;Delete Item From List&quot; button." wrapText="true" />
+        <TextArea editable="false" layoutX="14.0" layoutY="229.0" prefHeight="9.0" prefWidth="574.0" text="To clear list of all items: Click on &quot;Delete&quot; tab, then click on &quot;Delete all Items in List&quot; button." wrapText="true" />
+        <TextArea editable="false" layoutX="14.0" layoutY="268.0" prefHeight="43.0" prefWidth="574.0" text="To mark an item as complete or incomplete: Select item within list to change status, then click on &quot;Edit&quot; tab, and then click &quot;Change Complete Status&quot; button." wrapText="true" />
+        <TextArea editable="false" layoutX="14.0" layoutY="311.0" prefHeight="43.0" prefWidth="574.0" text="To display all items, all completed items, or all incompleted items, or sort by date within the list: Click on the desired respected option on the button menu at the bottom of the application." wrapText="true" />
+        <TextArea editable="false" layoutX="14.0" layoutY="354.0" prefHeight="43.0" prefWidth="574.0" text="To save the current list or load a previously saved list: Click on &quot;Save&quot; tab, and click on &quot;save&quot; or &quot;load&quot; respectively. Provide a path to save to or load from and the list will be saved or loaded to the app display." wrapText="true" />
+    </children>
+</AnchorPane>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="186.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="assignments.editInventorySerialController">
+    <children>
+        <Label alignment="TOP_CENTER" layoutX="420.0" layoutY="73.0" prefHeight="170.0" prefWidth="600.0" text="Write Inventory Serial Number" textAlignment="JUSTIFY" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <font>
+                <Font size="35.0" />
+            </font></Label>
+        <Button fx:id="saveSerialButton" layoutX="218.0" layoutY="110.0" mnemonicParsing="false" onAction="#saveSerialNumber" prefHeight="44.0" prefWidth="164.0" text="Save Serial Number" textAlignment="JUSTIFY">
+            <font>
+                <Font size="15.0" />
+            </font></Button>
+        <TextArea fx:id="newSerialTextBox" layoutX="45.0" layoutY="59.0" prefHeight="44.0" prefWidth="510.0" promptText="Enter A-XXX-XXX-XXX, where A must be a letter and X can be either a letter or digit" wrapText="true" />
+    </children>
+</AnchorPane>

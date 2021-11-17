@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuButton?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<SplitPane dividerPositions="0.5" orientation="VERTICAL" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="assignments.inventoryManagementAppController">
+    <items>
+        <MenuBar>
+            <menus>
+                <Menu mnemonicParsing="false" text="Remove">
+                    <items>
+                        <MenuItem mnemonicParsing="false" onAction="#deleteItem" text="Delete Item From List" />
+                        <MenuItem fx:id="DeleteAllListItemsButton" mnemonicParsing="false" onAction="#deleteAllInventoryItems" text="Delete All Items From List" />
+                    </items>
+                </Menu>
+                <Menu mnemonicParsing="false" text="Edit">
+                    <items>
+                        <MenuItem fx:id="editEventDescriptionButton" mnemonicParsing="false" onAction="#editItemName" text="Item Name" />
+                        <MenuItem fx:id="editEventDueDateButton" mnemonicParsing="false" onAction="#editItemSerial" text="Item Serial Number" />
+                        <MenuItem fx:id="markEventCompleteButton" mnemonicParsing="false" onAction="#editItemValue" text="Item Value" />
+                    </items>
+                </Menu>
+                <Menu mnemonicParsing="false" text="File">
+                    <items>
+                        <MenuItem mnemonicParsing="false" onAction="#saveListTSV" text="Save as TSV" />
+                        <MenuItem mnemonicParsing="false" onAction="#saveListHTML" text="Save as HTML" />
+                        <MenuItem mnemonicParsing="false" onAction="#saveListJSON" text="Save as JSON" />
+                        <MenuItem fx:id="loadListButton" mnemonicParsing="false" onAction="#loadList" text="Load List" />
+                    </items>
+                </Menu>
+                <Menu mnemonicParsing="false" text="Search">
+                    <items>
+                        <MenuItem mnemonicParsing="false" onAction="#searchSerial" text="By Serial Number" />
+                        <MenuItem mnemonicParsing="false" onAction="#searchName" text="By Name" />
+                    </items>
+                </Menu>
+                <Menu mnemonicParsing="false" text="Help">
+                    <items>
+                        <MenuItem mnemonicParsing="false" onAction="#guideUser" text="User Guide" />
+                    </items>
+                </Menu>
+            </menus>
+        </MenuBar>
+        <SplitPane dividerPositions="0.5" orientation="VERTICAL">
+            <items>
+                <SplitPane dividerPositions="0.13873994638069706" orientation="VERTICAL" prefHeight="297.0" prefWidth="702.0">
+                    <items>
+                        <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="38.0" prefWidth="690.0">
+                            <children>
+                                <Button layoutY="6.0" mnemonicParsing="false" onAction="#addEvent" prefHeight="26.0" prefWidth="94.0" text="Add Item" />
+                                <TextField fx:id="eventTextButton" layoutX="318.0" layoutY="7.0" prefHeight="26.0" prefWidth="361.0" promptText="Serial Number: A-XXX-XXX-XXX (A is a letter, X is a letter or digit)" />
+                                <Separator layoutX="98.0" orientation="VERTICAL" prefHeight="38.0" prefWidth="6.4" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="98.0" AnchorPane.topAnchor="0.0" />
+                                <Separator layoutX="303.0" orientation="VERTICAL" prefHeight="38.0" prefWidth="6.4" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="303.0" AnchorPane.topAnchor="0.0" />
+                                <TextField fx:id="valueText" alignment="CENTER" layoutX="123.0" layoutY="6.0" promptText="Enter Value in USD" />
+                            </children>
+                        </AnchorPane>
+                        <ListView fx:id="toDoEventList" prefHeight="237.0" prefWidth="686.0" />
+                    </items>
+                </SplitPane>
+                <MenuButton mnemonicParsing="false" text="Sort By Options" textAlignment="CENTER">
+                    <items>
+                        <MenuItem mnemonicParsing="false" onAction="#sortValue" text="Value" />
+                        <MenuItem mnemonicParsing="false" onAction="#sortSerialNumber" text="Serial Number" />
+                        <MenuItem mnemonicParsing="false" onAction="#sortName" text="Name" />
+                    </items>
+                    <font>
+                        <Font name="Roboto" size="12.0" />
+                    </font>
+                </MenuButton>
+            </items>
+        </SplitPane>
+    </items>
+</SplitPane>
