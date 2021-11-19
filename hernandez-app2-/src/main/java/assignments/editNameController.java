@@ -1,5 +1,5 @@
 /*
- *  UCF COP3330 Fall 2021 Application Assignment 1 Solution
+ *  UCF COP3330 Fall 2021 Application Assignment 2 Solution
  *  Copyright 2021 Cesar Hernandez
  */
 
@@ -22,12 +22,14 @@ public class editNameController {
 
     public void initData(String string){
         //is input string is not empty
-        //set text in text box to text in string
+        if(!string.isEmpty()){
+            //set text in text box to text in string
+            newDescriptionTextBox.setText(string);
+        }
     }
 
     public String getDescription(){
-        //return text within the text box
-        return"";
+        return newDescriptionTextBox.getText();
     }
 
     @FXML
@@ -40,9 +42,22 @@ public class editNameController {
     void saveDescription(ActionEvent event) throws IOException {
         //if the text in the text box is a greater than or equal to 2 and less than or equal to 256 in legnth
         //close stage
-
+        if(newDescriptionTextBox.getText().length() >= 2 && newDescriptionTextBox.getText().length() <= 256){
+            Stage stage = (Stage) saveDescriptionButton.getScene().getWindow();
+            stage.close();
+        }
         //else
         //display error scene
+        else{
+            Parent root =
+                    FXMLLoader.load(Objects.requireNonNull(getClass().getResource("nameError.fxml")));
+
+            Scene scene = new Scene(root);
+            Stage stage = new Stage();
+            stage.setTitle("Inventory Name Length Error");
+            stage.setScene(scene);
+            stage.show();
+        }
     }
 
 }

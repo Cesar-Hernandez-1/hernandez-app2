@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="156.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1">
+    <children>
+        <Text fill="#f70606" layoutX="169.0" layoutY="85.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ERROR!" textAlignment="JUSTIFY">
+            <font>
+                <Font name="Monospaced Bold" size="73.0" />
+            </font>
+        </Text>
+        <Text layoutX="17.0" layoutY="114.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Enter serial number in format: A-XXX-XXX-XXX. Where A is a letter and X is a number or letter!" textAlignment="CENTER" wrappingWidth="566.29833984375">
+            <font>
+                <Font name="Monospaced Bold" size="19.0" />
+            </font>
+        </Text>
+    </children>
+</AnchorPane>

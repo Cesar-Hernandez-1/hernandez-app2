@@ -1,5 +1,5 @@
 /*
- *  UCF COP3330 Fall 2021 Application Assignment 1 Solution
+ *  UCF COP3330 Fall 2021 Application Assignment 2 Solution
  *  Copyright 2021 Cesar Hernandez
  */
 
@@ -7,46 +7,47 @@ package assignments;
 
 public class inventoryItem {
     //define private String variable nameItem to store item name
+    private String nameItem;
     //define private String variable serialNumber to store item serial number
+    private String serialNumber;
     //define private String variable monetaryValue to store item monetary value in USD
+    private String monetaryValue;
 
     public inventoryItem(String name, String value, String serialNumber){
         //constructor sets name, date, serialNumber, and completed boolean status
         //into respective variables
+        this.nameItem = name;
+        this.monetaryValue = value;
+        this.serialNumber = serialNumber;
     }
 
     public void setMonetaryValue(String value){
-        //set object's monetaryValue variable to input variable
+        this.monetaryValue = value;
     }
 
     public String getMonetaryValue(){
-        //return object's monetaryValue variable
-        return"";
+        return this.monetaryValue;
     }
 
     public String getNameItem(){
-        //return object's nameItem variable
-        return"";
+        return this.nameItem;
     }
 
     public void setNameItem(String nameItem) {
-        //set object's nameItem variable to input variable
+        this.nameItem = nameItem;
     }
 
     public void setSerialNumber(String serial){
-        //set object's serialNumber variable to input variable
+        this.serialNumber = serial;
     }
 
     public String getSerialNumber(){
-        //return object's serialNumber variable
-        return"";
+        return this.serialNumber;
     }
 
     //override toString method to make this "inventoryItem" item formatted into a readable string to store or display
     @Override
     public String toString(){
-        //return string formated as "Item Name: " + item's name + "\nSerial Number: " + item's serial number
-        // + "\nMonetary Value: $" + item's monetary value is USD
-        return"";
+        return "Item Name: " + getNameItem() + "\nSerial Number: " + getSerialNumber() + "\nMonetary Value: $" + getMonetaryValue();
     }
 }
