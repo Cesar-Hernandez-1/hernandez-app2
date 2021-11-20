@@ -8,6 +8,9 @@ package assignments;
 import com.google.gson.Gson;
 
 import java.io.*;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -59,7 +62,7 @@ public class inventoryManagement {
     }
 
     public boolean validateValue(String value){
-        //try to return the truth value of parce double of input value variable greater than 0 AND the value matches the
+        //try to return the truth value of parse double of input value variable greater than 0 AND the value matches the
             //regular expression of "[0-9]+.[0-9]{2}"
         try{
             return Double.parseDouble(value) > 0 && value.matches("[0-9]+.[0-9]{2}");
@@ -187,9 +190,7 @@ public class inventoryManagement {
             StringBuilder saveOutput = new StringBuilder();
             int space = size - 4;
 
-            StringBuilder header = new StringBuilder("Serial Number" + "\t" + "Name");
-            header.append(" ".repeat(Math.max(0, space)));
-            saveOutput.append(header).append("\t").append("Value\n");
+            saveOutput.append("Serial Number" + "\t" + "Name").append(" ".repeat(Math.max(0, space))).append("\t").append("Value\n");
 
             //convert all items to text
             for(inventoryItem item : itemList){
@@ -207,18 +208,23 @@ public class inventoryManagement {
         }
     }
 
-    public void saveListJSON(String saveFile) throws IOException{
+    public void saveListJSON(inventoryManagement manager, String saveFile) throws IOException{
         //define a Gson object named gson and set it to a new gson()
         Gson gson = new Gson();
+
+        Writer writer = Files.newBufferedWriter(Path.of(saveFile + ".json"));
         //use gson method "toJson" to write the itemList to a json file to the saveFile location
-        gson.toJson(itemList, new FileWriter(saveFile + ".json"));
+        gson.toJson(manager, writer);
+        writer.close();
     }
 
-    public void loadListJSON(String loadFile) throws IOException{
+    public inventoryManagement loadListJSON(String loadFile) throws IOException{
         //define a Gson object named gson and set it to a new gson()
         Gson gson = new Gson();
+
+        Reader reader = Files.newBufferedReader(Paths.get(loadFile));
         //set itemList to the value returned from "fromJson" from the file defined from the incoming variable
-        itemList = gson.fromJson(new FileReader(loadFile), ArrayList.class);
+        return gson.fromJson(reader, inventoryManagement.class);
     }
 
     public void loadListHTML(File file) throws FileNotFoundException {

@@ -5,6 +5,7 @@
 
 package assignments;
 
+import com.google.gson.Gson;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -20,6 +21,12 @@ import javafx.stage.Stage;
 
 import java.io.File;
 import java.io.IOException;
+import java.io.Reader;
+import java.io.Writer;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
@@ -36,7 +43,7 @@ public class inventoryManagementAppController {
 
     //create observable list to display data event objects
     private final listObserve manageList = new listObserve();
-    private final inventoryManagement items = new inventoryManagement();
+    private inventoryManagement items = new inventoryManagement();
 
 
     @FXML
@@ -294,7 +301,9 @@ public class inventoryManagementAppController {
             switch (fileName.toString()) {
                 case ".txt" -> items.loadListTSV(file);
                 case "html" -> items.loadListHTML(file);
-                case "json" -> items.loadListJSON(file.toString());
+                case "json" -> {
+                    items = items.loadListJSON(file.toString());
+                }
                 default -> {
                     return;
                 }
@@ -452,7 +461,7 @@ public class inventoryManagementAppController {
             String fileName = file.getAbsolutePath() + "\\" + controller.getName();
 
             //convert list into text data and store date in the text file at the desired directory and with the desired name
-            items.saveListJSON(fileName);
+            items.saveListJSON(items, fileName);
 
         }//catch exception if there file can not be saved
         catch (Exception e){

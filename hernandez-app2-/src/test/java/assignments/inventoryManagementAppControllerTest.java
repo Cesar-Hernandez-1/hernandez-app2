@@ -198,17 +198,21 @@ class inventoryManagementAppControllerTest {
         manager.addItem(item2);
         manager.addItem(item3);
 
-        inventoryManagement expected = manager;
+        inventoryManagement expected = new inventoryManagement();
+        expected.addItem(item);
+        expected.addItem(item2);
+        expected.addItem(item3);
+
         //save to predetermined location
-        manager.saveListTSV("C:\\Users\\cesar\\Desktop\\hernandez-app2\\hernandez-app2-\\docs\\saveTest");
+        manager.saveListTSV("C:\\Users\\cesar\\Desktop\\hernandez-app2\\hernandez-app2-\\docs\\saveTest.txt");
         //clear current list
         manager.clearList();
 
         //load file from location to cleared manager to prove load works
-        File file = new File("C:\\Users\\cesar\\Desktop\\hernandez-app2\\hernandez-app2-\\docs\\saveTest");
+        File file = new File("C:\\Users\\cesar\\Desktop\\hernandez-app2\\hernandez-app2-\\docs\\saveTest.txt");
         manager.loadListTSV(file);
         //is contents in list are the same from loaded to expected, success
-        assertEquals(expected, manager);
+        assertEquals(expected.getList().toString(), manager.getList().toString());
     }
 
     @Test
@@ -222,20 +226,23 @@ class inventoryManagementAppControllerTest {
         manager.addItem(item2);
         manager.addItem(item3);
 
-        inventoryManagement expected = manager;
+        inventoryManagement expected = new inventoryManagement();
+        expected.addItem(item);
+        expected.addItem(item2);
+        expected.addItem(item3);
 
         //save to predetermined location
-        manager.saveListHTML("C:\\Users\\cesar\\Desktop\\hernandez-app2\\hernandez-app2-\\docs\\saveTest2");
+        manager.saveListHTML("C:\\Users\\cesar\\Desktop\\hernandez-app2\\hernandez-app2-\\docs\\saveTest2.html");
 
         //clear manager to prove load works
         manager.clearList();
 
         //load file from location
-        File file = new File("C:\\Users\\cesar\\Desktop\\hernandez-app2\\hernandez-app2-\\docs\\saveTest2");
+        File file = new File("C:\\Users\\cesar\\Desktop\\hernandez-app2\\hernandez-app2-\\docs\\saveTest2.html");
         manager.loadListHTML(file);
 
         //is contents in list are the same from loaded to expected, success
-        assertEquals(expected, manager);
+        assertEquals(expected.getList().toString(), manager.getList().toString());
     }
 
     @Test
@@ -249,19 +256,21 @@ class inventoryManagementAppControllerTest {
         manager.addItem(item2);
         manager.addItem(item3);
 
-        inventoryManagement expected = manager;
+        inventoryManagement expected = new inventoryManagement();
+        expected.addItem(item);
+        expected.addItem(item2);
+        expected.addItem(item3);
+
 
         //save to predetermined location
-        manager.saveListJSON("C:\\Users\\cesar\\Desktop\\hernandez-app2\\hernandez-app2-\\docs\\saveTest3");
+        manager.saveListJSON(manager,"C:\\Users\\cesar\\Desktop\\hernandez-app2\\hernandez-app2-\\docs\\saveTest3");
 
         //clear manager to prove load works
         manager.clearList();
 
         //load file from location
-        manager.loadListJSON("C:\\Users\\cesar\\Desktop\\hernandez-app2\\hernandez-app2-\\docs\\saveTest3");
-
         //is contents in list are the same from loaded to expected, success
-        assertEquals(expected, manager);
+        assertEquals(expected.getList().toString(), manager.loadListJSON("C:\\Users\\cesar\\Desktop\\hernandez-app2\\hernandez-app2-\\docs\\saveTest3.json").getList().toString());
     }
 
     @Test
