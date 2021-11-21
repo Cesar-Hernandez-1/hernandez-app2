@@ -63,7 +63,7 @@ class inventoryManagement{
     +sortByName(void) : void
     +sortBySerialNumber(void) : void
     +saveListTSV(string) : void
-    +saveListJSON(string) : void
+    +saveListJSON(inventoryManagement, String) : void
     +saveListHTML(File) : void
     +loadListTSV(File) : void
     +loadListJSON(File) : void
